@@ -2,15 +2,20 @@
 function getComputerChoice(){
     let number = Math.random();
     if ((0 <= number) && (number < 1/3)) {
-        console.log("Rock"); 
+        console.log("rock"); 
     } 
     else if ((1/3 <= number) && (number < 2/3)) {
-        console.log("Papers");
+        console.log("papers");
     } 
     else if ((2/3 <= number) && (number < 1)) {
-        console.log("Scissors");
+        console.log("scissors");
     }
-    console.log(number)
+}
+
+function getHumanChoice(){
+    choice = prompt("Enter rock, paper, or scissors: ")
 }
 
 getComputerChoice();
+getHumanChoice()
+console.log(choice)
