@@ -1,3 +1,5 @@
+humanScore = 0
+computerScore = 0 
 
 function getComputerChoice(){
     let number = Math.random();
@@ -15,6 +17,8 @@ function getComputerChoice(){
 function getHumanChoice(){
     choice = prompt("Enter rock, paper, or scissors: ")
 }
+
+
 
 getComputerChoice();
 getHumanChoice()
