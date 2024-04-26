@@ -1,25 +1,23 @@
 humanScore = 0
 computerScore = 0 
 
+
 function getComputerChoice(){
     let number = Math.random();
     if ((0 <= number) && (number < 1/3)) {
-        console.log("rock"); 
+        result = "rock"; 
     } 
     else if ((1/3 <= number) && (number < 2/3)) {
-        console.log("papers");
+        result = "scissors";
     } 
     else if ((2/3 <= number) && (number < 1)) {
-        console.log("scissors");
+        result = "paper";
     }
 }
 
 function getHumanChoice(){
-    choice = prompt("Enter rock, paper, or scissors: ")
+    let choice = prompt("Enter rock, paper, or scissors: ")
 }
-
-
 
 getComputerChoice();
 getHumanChoice()
-console.log(choice)
