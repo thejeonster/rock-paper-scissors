@@ -52,7 +52,7 @@ function playGame(x) {
         playRound(humanChoice, computerChoice);
     }}
 
-playGame(5)
+
 
 function finalTally(humanScore, computerScore) {
     if (humanScore > computerScore) {
