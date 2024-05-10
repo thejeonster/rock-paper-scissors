@@ -2,9 +2,9 @@ humanScore = 0;
 computerScore = 0;
 let humanChoice;
 
-const rockButton = document.querySelector("#rockBTN");
-const paperButton = document.querySelector("paper");
-const scissorsButton = document.querySelector("scissors");
+const rockButton = document.querySelector("#rockBtn");
+const paperButton = document.querySelector("#paperBtn");
+const scissorsButton = document.querySelector("#scissorsBtn");
 
 
 //function getHumanChoice(){
@@ -60,7 +60,21 @@ function playGame(x) {
 rockButton.addEventListener("click", () => {
     humanChoice = "rock";
     getComputerChoice();
-    console.log(computerChoice);
+    console.log(`The computer chose ${computerChoice}`);
+    playRound(humanChoice, computerChoice);
+});
+
+paperButton.addEventListener("click", () => {
+    humanChoice = "paper";
+    getComputerChoice();
+    console.log(`The computer chose ${computerChoice}`);
+    playRound(humanChoice, computerChoice);
+});
+
+scissorsButton.addEventListener("click", () => {
+    humanChoice = "scissors";
+    getComputerChoice();
+    console.log(`The computer chose ${computerChoice}`);
     playRound(humanChoice, computerChoice);
 });
     
