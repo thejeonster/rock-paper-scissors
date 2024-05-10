@@ -1,13 +1,17 @@
 humanScore = 0;
 computerScore = 0;
-humanChoice = ""
-computerChoice = ""
+let humanChoice;
 
-function getHumanChoice(){
-    entryPrompt = prompt("Enter rock, paper, or scissors: ")
-    humanChoice = entryPrompt.toLowerCase()
-    return humanChoice
-} 
+const rockButton = document.querySelector("#rockBTN");
+const paperButton = document.querySelector("paper");
+const scissorsButton = document.querySelector("scissors");
+
+
+//function getHumanChoice(){
+//    entryPrompt = prompt("Enter rock, paper, or scissors: ")
+//    humanChoice = entryPrompt.toLowerCase()
+//    return humanChoice
+//} 
 
 function getComputerChoice(){
     let number = Math.random();
@@ -53,6 +57,13 @@ function playGame(x) {
     }}
 
 
+rockButton.addEventListener("click", () => {
+    humanChoice = "rock";
+    getComputerChoice();
+    console.log(computerChoice);
+    playRound(humanChoice, computerChoice);
+});
+    
 
 function finalTally(humanScore, computerScore) {
     if (humanScore > computerScore) {
@@ -62,4 +73,5 @@ function finalTally(humanScore, computerScore) {
     } else if (computerScore === humanScore) {
         console.log("It is a tie!");
     }
-} finalTally(humanScore, computerScore)
+};
+//finalTally(humanScore, computerScore)
