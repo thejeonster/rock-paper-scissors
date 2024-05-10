@@ -1,10 +1,14 @@
 humanScore = 0;
 computerScore = 0;
 let humanChoice;
+let roundWinner; 
 
 const rockButton = document.querySelector("#rockBtn");
 const paperButton = document.querySelector("#paperBtn");
 const scissorsButton = document.querySelector("#scissorsBtn");
+
+const gameResult = document.createElement("div");
+gameResult.setAttribute("id", "results"); 
 
 
 //function getHumanChoice(){
@@ -29,25 +33,29 @@ function getComputerChoice(){
 function playRound(x, y){
     if ((humanChoice === "rock") && (computerChoice === "paper")) {
         computerScore += 1;
-        console.log("Paper beats Rock!");
+        roundWinner = "Paper beats Rock!";
     } else if ((humanChoice === "rock") && (computerChoice === "scissors")) {
         humanScore += 1;
-        console.log("Rock beats Scissors!");
+        roundWinner = "Rock beats Scissors!";
     } else if ((humanChoice === "paper") && (computerChoice === "rock")) {
         humanScore += 1;
-        console.log("Paper beats Rock!");
+        roundWinner = "Paper beats Rock!";
     } else if ((humanChoice === "paper") && (computerChoice === "scissors")) {
         computerScore += 1;
-        console.log("Scissors beats Paper!");
+        roundWinner = "Scissors beats Paper!";
     } else if ((humanChoice === "scissors") && (computerChoice === "paper")) {
         humanScore += 1;
-        console.log("Scissors beats Paper!");
+        roundWinner = "Scissors beats Paper!";
     } else if ((humanChoice === "scissors") && (computerChoice === "rock")) {
         computerScore += 1;
-        console.log("Rock beats Scissors!");
+        roundWinner = "Rock beats Scissors!";
     } else if (humanChoice === computerChoice) {
-        console.log("Tie Game!");
-    }}
+        roundWinner = "Tie Game!";
+    }
+    let displayResult = document.createElement("div");
+    displayResult.textContent = `${roundWinner}`
+    results.appendChild(displayResult)
+}
 
 function playGame(x) {
     for (i = 0; i < x; i++) {
@@ -78,6 +86,8 @@ scissorsButton.addEventListener("click", () => {
     playRound(humanChoice, computerChoice);
 });
     
+
+gameResult.textContent = ``
 
 function finalTally(humanScore, computerScore) {
     if (humanScore > computerScore) {
