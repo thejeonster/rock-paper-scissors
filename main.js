@@ -10,12 +10,17 @@ const scissorsButton = document.querySelector("#scissorsBtn");
 const gameResult = document.createElement("div");
 gameResult.setAttribute("id", "results"); 
 
-
-//function getHumanChoice(){
-//    entryPrompt = prompt("Enter rock, paper, or scissors: ")
-//    humanChoice = entryPrompt.toLowerCase()
-//    return humanChoice
-//} 
+function finalTally(humanScore, computerScore) {
+    if (humanScore == 5) {
+        let gameWinner = document.createElement("div");
+        gameWinner.textContent = "You win!";
+        results.appendChild(gameWinner);
+    } else if (computerScore == 5) {
+        let gameWinner = document.createElement("div");
+        gameWinner.textContent = "Computer wins!";
+        results.appendChild(gameWinner);
+    }   
+};
 
 function getComputerChoice(){
     let number = Math.random();
@@ -53,49 +58,28 @@ function playRound(x, y){
         roundWinner = "Tie Game!";
     }
     let displayResult = document.createElement("div");
-    displayResult.textContent = `${roundWinner}`
-    results.appendChild(displayResult)
+    displayResult.textContent = `${roundWinner} Your score is ${humanScore}. 
+    The computer's score is ${computerScore}.`;
+    results.appendChild(displayResult);
 }
-
-function playGame(x) {
-    for (i = 0; i < x; i++) {
-        getHumanChoice();
-        getComputerChoice();
-        playRound(humanChoice, computerChoice);
-    }}
-
-
 rockButton.addEventListener("click", () => {
     humanChoice = "rock";
     getComputerChoice();
-    console.log(`The computer chose ${computerChoice}`);
     playRound(humanChoice, computerChoice);
+    finalTally(humanScore, computerScore);
 });
 
 paperButton.addEventListener("click", () => {
     humanChoice = "paper";
     getComputerChoice();
-    console.log(`The computer chose ${computerChoice}`);
     playRound(humanChoice, computerChoice);
+    finalTally(humanScore, computerScore);
 });
 
 scissorsButton.addEventListener("click", () => {
     humanChoice = "scissors";
     getComputerChoice();
-    console.log(`The computer chose ${computerChoice}`);
     playRound(humanChoice, computerChoice);
+    finalTally(humanScore, computerScore);
 });
     
-
-gameResult.textContent = ``
-
-function finalTally(humanScore, computerScore) {
-    if (humanScore > computerScore) {
-        console.log("You win!");
-    } else if (computerScore > humanScore) {
-        console.log("Computer wins!");
-    } else if (computerScore === humanScore) {
-        console.log("It is a tie!");
-    }
-};
-//finalTally(humanScore, computerScore)
